@@ -164,34 +164,26 @@
                 $( "#redMix" ).draggable();
                 $( "#blueMix" ).draggable();
 
-                $( "#purpleResult" ).droppable({
-                      accept: ("#redMix","#blueMix"),
+                $( "#blueMix" ).droppable({
+                      accept: "#redMix",
                       drop: function( event, ui ) {
                         $( this )
-                        purple++;
                         console.log("helloooooo");
-                        if (purple > 1) {
-                          $('#redMix').css({display: 'none'});
-                          $('#blueMix').css({display: 'none'});
-                        }
+                        $('#redMix').css({display: 'none'});
+                        $('#blueMix').css({"background-color": 'purple'});
                       }
                     });
 
-                  /*  $( "#purpleResult" ).droppable({
-                          accept: "#blueMix",
-                          drop: function( event, ui ) {
-                            $( this )
-                            blueSuccess++;
-                            console.log("blue mix "+(blueSuccess));
-                            if (redSuccess > 0 && blueSuccess > 0) {
-                              purple++;
-                              $('#redMix').css({display: 'none'});
-                              $('#blueMix').css({display: 'none'});
-                            }
-                          }
-                        }); */
+                $( "#redMix" ).droppable({
+                      accept: "#blueMix",
+                      drop: function( event, ui ) {
+                        $( this )
+                        console.log("hellooooooodjishjjsfjksdnjfsd");
+                        $('#blueMix').css({display: 'none'});
+                        $('#redMix').css({"background-color": 'purple'});
                       }
-
+                    });
+                  }
 
 
     </script>
@@ -232,8 +224,6 @@
   <div id="blueMix" class="ui-widget-content">
   </div>
   <div id="redMix" class="ui-widget-content">
-  </div>
-  <div id="purpleResult" class="ui-widget-header">
   </div>
 </div>
 
