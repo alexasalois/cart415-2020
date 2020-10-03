@@ -157,20 +157,22 @@
                 $('#level3').css({display: 'block'});
                 $('#level2').css({display: 'none'});
 
-                var blueSuccess = 0;
-                var redSuccess = 0;
-                var purple = 0;
 
                 $( "#redMix" ).draggable();
                 $( "#blueMix" ).draggable();
+                $( "#red2Mix" ).draggable();
+                $( "#blue2Mix" ).draggable();
+                $( "#yellowMix" ).draggable();
+                $( "#yellow2Mix" ).draggable();
 
                 $( "#blueMix" ).droppable({
                       accept: "#redMix",
                       drop: function( event, ui ) {
                         $( this )
-                        console.log("helloooooo");
                         $('#redMix').css({display: 'none'});
                         $('#blueMix').css({"background-color": 'purple'});
+                        $('#red2Mix').css({display: 'block'});
+                        $('#yellowMix').css({display: 'block'});
                       }
                     });
 
@@ -178,12 +180,58 @@
                       accept: "#blueMix",
                       drop: function( event, ui ) {
                         $( this )
-                        console.log("hellooooooodjishjjsfjksdnjfsd");
                         $('#blueMix').css({display: 'none'});
                         $('#redMix').css({"background-color": 'purple'});
+                        $('#red2Mix').css({display: 'block'});
+                        $('#yellowMix').css({display: 'block'});
+                      }
+                    });
+
+                $( "#red2Mix" ).droppable({
+                      accept: "#yellowMix",
+                      drop: function( event, ui ) {
+                        $( this )
+                        $('#red2Mix').css({display: 'none'});
+                        $('#yellowMix').css({"background-color": 'orange'});
+                        $('#yellow2Mix').css({display: 'block'});
+                        $('#blue2Mix').css({display: 'block'});
+                      }
+                    });
+
+                $( "#yellowMix" ).droppable({
+                      accept: "#red2Mix",
+                      drop: function( event, ui ) {
+                        $( this )
+                        $('#red2Mix').css({display: 'none'});
+                        $('#yellowMix').css({"background-color": 'orange'});
+                        $('#yellow2Mix').css({display: 'block'});
+                        $('#blue2Mix').css({display: 'block'});
+                      }
+                    });
+
+                $( "#yellow2Mix" ).droppable({
+                      accept: "#blue2Mix",
+                      drop: function( event, ui ) {
+                        $( this )
+                        $('#yellow2Mix').css({display: 'none'});
+                        $('#blue2Mix').css({"background-color": 'blue'});
+                      }
+                    });
+
+
+                $( "#blue2Mix" ).droppable({
+                      accept: "#yellow2Mix",
+                      drop: function( event, ui ) {
+                        $( this )
+                        $('#yellow2Mix').css({display: 'none'});
+                        $('#blue2Mix').css({"background-color": 'green'});
                       }
                     });
                   }
+
+////////////////////////////////////////////////////////////
+
+
 
 
     </script>
@@ -224,6 +272,14 @@
   <div id="blueMix" class="ui-widget-content">
   </div>
   <div id="redMix" class="ui-widget-content">
+  </div>
+  <div id="yellowMix" class="ui-widget-content">
+  </div>
+  <div id="blue2Mix" class="ui-widget-content">
+  </div>
+  <div id="red2Mix" class="ui-widget-content">
+  </div>
+  <div id="yellow2Mix" class="ui-widget-content">
   </div>
 </div>
 
