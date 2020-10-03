@@ -1,0 +1,120 @@
+/*********************************************
+
+This is the style file for this project.
+
+**********************************************/
+body {
+  background-color: black;
+}
+
+#gilgamesh {
+  display: block;
+  position: absolute;
+  width: 200px;
+  height: 400px;
+}
+
+#level1 {
+  display: block;
+}
+
+
+#level2 {
+  display: none;
+}
+
+#level3 {
+  display: none;
+  color: white;
+}
+
+
+#red {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}
+
+#redtarget {
+  background-color: pink;
+  width: 100px;
+  height: 100px;
+}
+
+#blue {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+}
+
+#bluetarget {
+  background-color: #6AC2FF;
+  width: 100px;
+  height: 100px;
+}
+
+#yellow {
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+}
+
+#yellowtarget {
+  background-color: #FFFBA9;
+  width: 100px;
+  height: 100px;
+}
+
+#green {
+  background-color: green;
+  width: 100px;
+  height: 100px;
+}
+
+#greentarget {
+  background-color: #B5FFB3;
+  width: 100px;
+  height: 100px;
+}
+
+#orange {
+  background-color: orange;
+  width: 100px;
+  height: 100px;
+}
+
+#orangetarget {
+  background-color: #FFD49E;
+  width: 100px;
+  height: 100px;
+}
+
+#purple {
+  background-color: purple;
+  width: 100px;
+  height: 100px;
+}
+
+#purpletarget {
+  background-color: #DEB4FF;
+  width: 100px;
+  height: 100px;
+}
+
+#blueMix {
+  background-color: #1394FF;
+  width: 100px;
+  height: 100px;
+}
+
+#redMix {
+  background-color: #FF253F;
+  width: 100px;
+  height: 100px;
+}
+
+#purpleResult {
+  background-color: #690DE7;
+  width: 100px;
+  height: 100px;
+}

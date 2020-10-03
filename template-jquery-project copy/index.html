@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+  <!-- CSS stylesheet(s) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <!-- Libraries -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+
+  <!-- My script(s) -->
+  <script src="js/script.js"></script>
+</head>
+
+
+  <!-- Javascript -->
+  <script>
+
+  function image() {
+    var img = document.createElement("gilgamesh");
+    img.src = "/images/gilgamesh.png";
+    $('#gilgamesh').html(img);
+    console.log('gilgamesh??????');
+}
+
+/////////////////////////////////////////////////////////////
+
+
+    $( function() {
+      var redPoints = 0;
+      var bluePoints = 0;
+      var yellowPoints = 0;
+
+///////////
+
+//  var docHeight = $(document).height(),
+//      docWidth = $(document).width(),
+//      $div = $('#red','#redtarget','#blue','#bluetarget','#yellow','#yellowtarget'),
+//      divWidth = $div.width(),
+//      divHeight = $div.height(),
+//      heightMax = docHeight - divHeight,
+//      widthMax = docWidth - divWidth;
+
+//   $div.css({
+//       left: Math.floor( Math.random() * widthMax ),
+//       top: Math.floor( Math.random() * heightMax )
+//   });
+
+///////////
+
+      $( "#red" ).draggable();
+      $( "#redtarget" ).droppable({
+            accept: "#red",
+            drop: function( event, ui ) {
+              $( this )
+              redPoints++;
+              console.log("red "+(redPoints));
+              if (redPoints > 0 && yellowPoints > 0 && bluePoints > 0) {
+                console.log("if statement");
+                level2();
+              }
+            }
+          });
+
+        $( "#yellow" ).draggable();
+        $( "#yellowtarget" ).droppable({
+              accept: "#yellow",
+              drop: function( event, ui ) {
+                $( this )
+                yellowPoints++;
+                console.log("yellow "+(yellowPoints));
+                if (redPoints > 0 && yellowPoints > 0 && bluePoints > 0) {
+                  console.log("if statement");
+                  level2();
+                }
+            }
+          });
+
+          $( "#blue" ).draggable();
+          $( "#bluetarget" ).droppable({
+                accept: "#blue",
+                drop: function( event, ui ) {
+                  $( this )
+                  bluePoints++;
+                  console.log("blue "+(bluePoints));
+                  if (redPoints > 0 && yellowPoints > 0 && bluePoints > 0) {
+                    console.log("if statement");
+                    level2();
+                  }
+              }
+            });
+          });
+
+/////////////////////////////////////////////////////////////
+
+
+          function level2() {
+            console.log("hi im in level 2 now");
+            $('#level2').css({display: 'block'});
+            $('#level1').css({display: 'none'});
+
+            var greenPoints = 0;
+            var orangePoints = 0;
+            var purplePoints = 0;
+
+            $( "#green" ).draggable();
+            $( "#greentarget" ).droppable({
+                  accept: "#green",
+                  drop: function( event, ui ) {
+                    $( this )
+                    greenPoints++;
+                    if (greenPoints > 0 && orangePoints > 0 && purplePoints > 0) {
+                      level3();
+                    }
+                  }
+                });
+
+              $( "#orange" ).draggable();
+              $( "#orangetarget" ).droppable({
+                    accept: "#orange",
+                    drop: function( event, ui ) {
+                      $( this )
+                      orangePoints++;
+                      if (greenPoints > 0 && orangePoints > 0 && purplePoints > 0) {
+                        level3();
+                      }
+                    }
+                  });
+
+                $( "#purple" ).draggable();
+                $( "#purpletarget" ).droppable({
+                      accept: "#purple",
+                      drop: function( event, ui ) {
+                        $( this )
+                        purplePoints++;
+                        if (greenPoints > 0 && orangePoints > 0 && purplePoints > 0) {
+                          level3();
+                        }
+                      }
+                    });
+                  }
+
+/////////////////////////////////////////////////////////////
+
+              function level3(){
+                $('#level3').css({display: 'block'});
+                $('#level2').css({display: 'none'});
+
+                var blueSuccess = 0;
+                var redSuccess = 0;
+                var purple = 0;
+
+                $( "#redMix" ).draggable();
+                $( "#blueMix" ).draggable();
+
+                $( "#purpleResult" ).droppable({
+                      accept: ("#redMix","#blueMix"),
+                      drop: function( event, ui ) {
+                        $( this )
+                        purple++;
+                        console.log("helloooooo");
+                        if (purple > 1) {
+                          $('#redMix').css({display: 'none'});
+                          $('#blueMix').css({display: 'none'});
+                        }
+                      }
+                    });
+
+                  /*  $( "#purpleResult" ).droppable({
+                          accept: "#blueMix",
+                          drop: function( event, ui ) {
+                            $( this )
+                            blueSuccess++;
+                            console.log("blue mix "+(blueSuccess));
+                            if (redSuccess > 0 && blueSuccess > 0) {
+                              purple++;
+                              $('#redMix').css({display: 'none'});
+                              $('#blueMix').css({display: 'none'});
+                            }
+                          }
+                        }); */
+                      }
+
+
+
+    </script>
+
+<body>
+
+<div id= "level1">
+  <div id="red" class="ui-widget-content">
+  </div>
+  <div id="redtarget" class="ui-widget-header">
+  </div>
+  <div id="blue" class="ui-widget-content">
+  </div>
+  <div id="bluetarget" class="ui-widget-header">
+  </div>
+  <div id="yellow" class="ui-widget-content">
+  </div>
+  <div id="yellowtarget" class="ui-widget-header">
+  </div>
+</div>
+
+<div id="level2">
+  <div id="green" class="ui-widget-content">
+  </div>
+  <div id="greentarget" class="ui-widget-header">
+  </div>
+  <div id="orange" class="ui-widget-content">
+  </div>
+  <div id="orangetarget" class="ui-widget-header">
+  </div>
+  <div id="purple" class="ui-widget-content">
+  </div>
+  <div id="purpletarget" class="ui-widget-header">
+  </div>
+</div>
+
+<div id="level3">
+  <div id="blueMix" class="ui-widget-content">
+  </div>
+  <div id="redMix" class="ui-widget-content">
+  </div>
+  <div id="purpleResult" class="ui-widget-header">
+  </div>
+</div>
+
+<div id="gilgamesh"><a href="javascript:image();"></a></div>
+
+
+</body>
+
+</html>
