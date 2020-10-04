@@ -65,9 +65,7 @@
             drop: function( event, ui ) {
               $( this )
               redPoints++;
-              console.log("red "+(redPoints));
               if (redPoints > 0 && yellowPoints > 0 && bluePoints > 0) {
-                console.log("if statement");
                 level2();
               }
             }
@@ -79,9 +77,7 @@
               drop: function( event, ui ) {
                 $( this )
                 yellowPoints++;
-                console.log("yellow "+(yellowPoints));
                 if (redPoints > 0 && yellowPoints > 0 && bluePoints > 0) {
-                  console.log("if statement");
                   level2();
                 }
             }
@@ -93,9 +89,7 @@
                 drop: function( event, ui ) {
                   $( this )
                   bluePoints++;
-                  console.log("blue "+(bluePoints));
                   if (redPoints > 0 && yellowPoints > 0 && bluePoints > 0) {
-                    console.log("if statement");
                     level2();
                   }
               }
@@ -106,7 +100,6 @@
 
 
           function level2() {
-            console.log("hi im in level 2 now");
             $('#level2').css({display: 'block'});
             $('#level1').css({display: 'none'});
 
@@ -169,8 +162,8 @@
                       accept: "#redMix",
                       drop: function( event, ui ) {
                         $( this )
-                        $('#redMix').css({display: 'none'});
-                        $('#blueMix').css({"background-color": 'purple'});
+                        $('#blueMix').css({display: 'none'});
+                        $('#redMix').css({"background-color": 'purple'});
                         $('#red2Mix').css({display: 'block'});
                         $('#yellowMix').css({display: 'block'});
                       }
@@ -214,7 +207,8 @@
                       drop: function( event, ui ) {
                         $( this )
                         $('#yellow2Mix').css({display: 'none'});
-                        $('#blue2Mix').css({"background-color": 'blue'});
+                        $('#blue2Mix').css({"background-color": 'green'});
+                        level4();
                       }
                     });
 
@@ -225,12 +219,69 @@
                         $( this )
                         $('#yellow2Mix').css({display: 'none'});
                         $('#blue2Mix').css({"background-color": 'green'});
+                        setTimeout(level4, 5000);
                       }
                     });
                   }
 
 ////////////////////////////////////////////////////////////
 
+                function level4() {
+                  var redCorrect = 0;
+                  var orangeCorrect = 0;
+                  var blueCorrect = 0;
+
+                  $('#blue2Mix').css({display: 'none'});
+                  $('#yellowMix').css({display: 'none'});
+                  $('#redMix').css({display: 'none'});
+
+                  $( "#blueMemory" ).draggable();
+                  $( "#redMemory" ).draggable();
+                  $( "#yellowMemory" ).draggable();
+                  $( "#greenMemory" ).draggable();
+                  $( "#orangeMemory" ).draggable();
+                  $( "#purpleMemory" ).draggable();
+
+                  $('#level4').css({display: 'block'});
+                  $('#colorOrder1').css({display: 'block'});
+
+                  setTimeout(function(){ $('#colorOrder1').css({display: 'none'}); }, 5000);
+                  setTimeout(spawnBlocks, 5000);
+
+                  function spawnBlocks() {
+                    $('#redMemory').css({display: 'block'});
+                    $('#blueMemory').css({display: 'block'});
+                    $('#yellowMemory').css({display: 'block'});
+                    $('#greenMemory').css({display: 'block'});
+                    $('#orangeMemory').css({display: 'block'});
+                    $('#purpleMemory').css({display: 'block'});
+
+                    $( "#answerBox" ).droppable({
+                        accept: "#redMemory",
+                        drop: function( event, ui ) {
+                          $( this )
+                            redCorrect++;
+                          }
+                        });
+
+                    $( "#answerBox" ).droppable({
+                        accept: "#orangeMemory",
+                        drop: function( event, ui ) {
+                          $( this )
+                            orangeCorrect++;
+                          }
+                        });
+
+                    $( "#answerBox" ).droppable({
+                        accept: "#blueMemory",
+                        drop: function( event, ui ) {
+                          $( this )
+                            blueCorrect++;
+                          }
+                        });
+
+                  }
+                }
 
 
 
@@ -282,6 +333,38 @@
   <div id="yellow2Mix" class="ui-widget-content">
   </div>
 </div>
+
+<div id="level4">
+  <div id="redMemory" class="ui-widget-content">
+  </div>
+  <div id="blueMemory" class="ui-widget-content">
+  </div>
+  <div id="yellowMemory" class="ui-widget-content">
+  </div>
+  <div id="greenMemory" class="ui-widget-content">
+  </div>
+  <div id="purpleMemory" class="ui-widget-content">
+  </div>
+  <div id="orangeMemory" class="ui-widget-content">
+  </div>
+
+<div id="answerBox">
+  <p>drop colours here</p>
+</div>
+
+  <div id="colorOrder1">
+    <p>red, orange, blue</p>
+  </div>
+
+  <div id="colorOrder2">
+    <p>purple, pink, green, red</p>
+  </div>
+
+  <div id="colorOrder3">
+    <p>yellow, blue, orange, purple, green </p>
+  </div>
+</div>
+
 
 <div id="gilgamesh"><a href="javascript:image();"></a></div>
 

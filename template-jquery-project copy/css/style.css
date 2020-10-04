@@ -27,6 +27,11 @@ body {
   color: white;
 }
 
+#level4 {
+  display: none;
+  color: white;
+}
+
 /* LEVEL 1 */
 
 #red {
@@ -143,4 +148,67 @@ body {
   background-color: yellow;
   width: 100px;
   height: 100px;
+}
+
+/* LEVEL 4 */
+#colorOrder1 {
+  display: none;
+}
+
+#colorOrder2 {
+  display: none;
+}
+
+#colorOrder3 {
+  display: none;
+}
+
+#redMemory {
+  display: none;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}
+
+#blueMemory {
+  display: none;
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+}
+
+#yellowMemory {
+  display: none;
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+}
+
+#greenMemory {
+  display: none;
+  background-color: green;
+  width: 100px;
+  height: 100px;
+}
+
+#orangeMemory {
+  display: none;
+  background-color: orange;
+  width: 100px;
+  height: 100px;
+}
+
+#purpleMemory {
+  display: none;
+  background-color: purple;
+  width: 100px;
+  height: 100px;
+}
+
+#answerBox {
+  display: block;
+  color: white;
+  width: 400px;
+  height: 400px;
+
 }
