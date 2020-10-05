@@ -261,6 +261,21 @@
                         drop: function( event, ui ) {
                           $( this )
                             redCorrect++;
+                            console.log("red points "+(redCorrect));
+                            if (redCorrect > 0 && orangeCorrect > 0 && blueCorrect > 0) {
+                              console.log("if statement red");
+                              $('#redMemory').css({display: 'none'});
+                              $('#blueMemory').css({display: 'none'});
+                              $('#yellowMemory').css({display: 'none'});
+                              $('#greenMemory').css({display: 'none'});
+                              $('#orangeMemory').css({display: 'none'});
+                              $('#purpleMemory').css({display: 'none'});
+                              $('#colorOrder2').css({display: 'block'});
+                              var redCorrect = 0;
+                              var orangeCorrect = 0;
+                              var blueCorrect = 0;
+                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000)
+                            }
                           }
                         });
 
@@ -269,6 +284,21 @@
                         drop: function( event, ui ) {
                           $( this )
                             orangeCorrect++;
+                            console.log("orange points "+(orangeCorrect));
+                            if (redCorrect > 0 && orangeCorrect > 0 && blueCorrect > 0) {
+                              console.log("if statement orange");
+                              $('#redMemory').css({display: 'none'});
+                              $('#blueMemory').css({display: 'none'});
+                              $('#yellowMemory').css({display: 'none'});
+                              $('#greenMemory').css({display: 'none'});
+                              $('#orangeMemory').css({display: 'none'});
+                              $('#purpleMemory').css({display: 'none'});
+                              $('#colorOrder2').css({display: 'block'});
+                              var redCorrect = 0;
+                              var orangeCorrect = 0;
+                              var blueCorrect = 0;
+                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000)
+                            }
                           }
                         });
 
@@ -277,6 +307,21 @@
                         drop: function( event, ui ) {
                           $( this )
                             blueCorrect++;
+                            console.log("blue points"+(blueCorrect));
+                            if (redCorrect > 0 && orangeCorrect > 0 && blueCorrect > 0) {
+                              console.log("if statement blue");
+                              $('#redMemory').css({display: 'none'});
+                              $('#blueMemory').css({display: 'none'});
+                              $('#yellowMemory').css({display: 'none'});
+                              $('#greenMemory').css({display: 'none'});
+                              $('#orangeMemory').css({display: 'none'});
+                              $('#purpleMemory').css({display: 'none'});
+                              $('#colorOrder2').css({display: 'block'});
+                              var redCorrect = 0;
+                              var orangeCorrect = 0;
+                              var blueCorrect = 0;
+                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000)
+                            }
                           }
                         });
 
