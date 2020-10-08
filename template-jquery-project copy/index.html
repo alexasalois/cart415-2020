@@ -27,37 +27,21 @@
   <!-- Javascript -->
   <script>
 
-  function image() {
-    var img = document.createElement("gilgamesh");
-    img.src = "/images/gilgamesh.png";
-    $('#gilgamesh').html(img);
-    console.log('gilgamesh??????');
-}
+    function startGame() {
+      $("#game").css("display","block");
+      $("#button").css("display","none");
+
+      var song = document.getElementById("bgMusic");
+      song.play(); 
+    }
 
 /////////////////////////////////////////////////////////////
-
 
     $( function() {
       var redPoints = 0;
       var bluePoints = 0;
       var yellowPoints = 0;
 
-///////////
-
-//  var docHeight = $(document).height(),
-//      docWidth = $(document).width(),
-//      $div = $('#red','#redtarget','#blue','#bluetarget','#yellow','#yellowtarget'),
-//      divWidth = $div.width(),
-//      divHeight = $div.height(),
-//      heightMax = docHeight - divHeight,
-//      widthMax = docWidth - divWidth;
-
-//   $div.css({
-//       left: Math.floor( Math.random() * widthMax ),
-//       top: Math.floor( Math.random() * heightMax )
-//   });
-
-///////////
 
       $( "#red" ).draggable();
       $( "#redtarget" ).droppable({
@@ -148,6 +132,7 @@
 
               function level3(){
                 $('#level3').css({display: 'block'});
+                $('#ninsun').css({display: 'block'});
                 $('#level2').css({display: 'none'});
 
 
@@ -346,12 +331,21 @@
 
 <body>
 
+<button id="button" onclick="startGame()">Wake Up</button>
+
+<audio id="bgMusic">
+  <source src="assets/sounds/Loneliness.mp3" type="audio/mpeg">
+</audio>
+
 <div id= "game">
 
 <div id="gilgamesh">
 </div>
 
 <div id="bubble">
+</div>
+
+<div id="ninsun">
 </div>
 
 <div id= "level1">
