@@ -227,9 +227,7 @@
 ////////////////////////////////////////////////////////////
 
                 function level4() {
-                  var redCorrect = 0;
-                  var orangeCorrect = 0;
-                  var blueCorrect = 0;
+                  var correctColours = 0;
 
                   $('#blue2Mix').css({display: 'none'});
                   $('#yellowMix').css({display: 'none'});
@@ -257,13 +255,12 @@
                     $('#purpleMemory').css({display: 'block'});
 
                     $( "#answerBox" ).droppable({
-                        accept: "#redMemory",
+                        accept: "#redMemory,#orangeMemory,#blueMemory",
                         drop: function( event, ui ) {
                           $( this )
-                            redCorrect++;
-                            console.log("red points "+(redCorrect));
-                            if (redCorrect > 0 && orangeCorrect > 0 && blueCorrect > 0) {
-                              console.log("if statement red");
+                            correctColours++;
+                            console.log("correct !"+(correctColours));
+                            if (correctColours > 2) {
                               $('#redMemory').css({display: 'none'});
                               $('#blueMemory').css({display: 'none'});
                               $('#yellowMemory').css({display: 'none'});
@@ -271,61 +268,76 @@
                               $('#orangeMemory').css({display: 'none'});
                               $('#purpleMemory').css({display: 'none'});
                               $('#colorOrder2').css({display: 'block'});
-                              var redCorrect = 0;
-                              var orangeCorrect = 0;
-                              var blueCorrect = 0;
-                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000)
+
+                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000);
+                              setTimeout(spawnBlocks2,5000);
                             }
                           }
                         });
+                      }
 
-                    $( "#answerBox" ).droppable({
-                        accept: "#orangeMemory",
-                        drop: function( event, ui ) {
-                          $( this )
-                            orangeCorrect++;
-                            console.log("orange points "+(orangeCorrect));
-                            if (redCorrect > 0 && orangeCorrect > 0 && blueCorrect > 0) {
-                              console.log("if statement orange");
-                              $('#redMemory').css({display: 'none'});
-                              $('#blueMemory').css({display: 'none'});
-                              $('#yellowMemory').css({display: 'none'});
-                              $('#greenMemory').css({display: 'none'});
-                              $('#orangeMemory').css({display: 'none'});
-                              $('#purpleMemory').css({display: 'none'});
-                              $('#colorOrder2').css({display: 'block'});
-                              var redCorrect = 0;
-                              var orangeCorrect = 0;
-                              var blueCorrect = 0;
-                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000)
-                            }
+                      function spawnBlocks2() {
+                        correctColours = 0;
+                        $('#redMemory').css({display: 'block',position: 'fixed'});
+                        $('#blueMemory').css({display: 'block',position: 'fixed'});
+                        $('#yellowMemory').css({display: 'block',position: 'fixed'});
+                        $('#greenMemory').css({display: 'block',position: 'fixed'});
+                        $('#orangeMemory').css({display: 'block',position: 'fixed'});
+                        $('#purpleMemory').css({display: 'block',position: 'fixed'});
+
+                        $( "#answerBox" ).droppable({
+                            accept: "#purpleMemory,#yellowMemory,#greenMemory,#redMemory",
+                            drop: function( event, ui ) {
+                              $( this )
+                                correctColours++;
+                                console.log("correct !"+(correctColours));
+                                if (correctColours > 3) {
+                                  console.log("you did it!");
+                                  $('#redMemory').css({display: 'none'});
+                                  $('#blueMemory').css({display: 'none'});
+                                  $('#yellowMemory').css({display: 'none'});
+                                  $('#greenMemory').css({display: 'none'});
+                                  $('#orangeMemory').css({display: 'none'});
+                                  $('#purpleMemory').css({display: 'none'});
+                                  $('#colorOrder3').css({display: 'block'});
+
+                                  setTimeout(function(){ $('#colorOrder3').css({display: 'none'}); }, 5000);
+                                  setTimeout(spawnBlocks3,5000);
+                                }
+                              }
+                            });
                           }
-                        });
 
-                    $( "#answerBox" ).droppable({
-                        accept: "#blueMemory",
-                        drop: function( event, ui ) {
-                          $( this )
-                            blueCorrect++;
-                            console.log("blue points"+(blueCorrect));
-                            if (redCorrect > 0 && orangeCorrect > 0 && blueCorrect > 0) {
-                              console.log("if statement blue");
-                              $('#redMemory').css({display: 'none'});
-                              $('#blueMemory').css({display: 'none'});
-                              $('#yellowMemory').css({display: 'none'});
-                              $('#greenMemory').css({display: 'none'});
-                              $('#orangeMemory').css({display: 'none'});
-                              $('#purpleMemory').css({display: 'none'});
-                              $('#colorOrder2').css({display: 'block'});
-                              var redCorrect = 0;
-                              var orangeCorrect = 0;
-                              var blueCorrect = 0;
-                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000)
-                            }
-                          }
-                        });
+                          function spawnBlocks3() {
+                            correctColours = 0;
+                            $('#redMemory').css({display: 'block',position: 'fixed'});
+                            $('#blueMemory').css({display: 'block',position: 'fixed'});
+                            $('#yellowMemory').css({display: 'block',position: 'fixed'});
+                            $('#greenMemory').css({display: 'block',position: 'fixed'});
+                            $('#orangeMemory').css({display: 'block',position: 'fixed'});
+                            $('#purpleMemory').css({display: 'block',position: 'fixed'});
 
-                  }
+                            $( "#answerBox" ).droppable({
+                                accept: "#yellowMemory,#blueMemory,#orangeMemory,#purpleMemory,#greenMemory",
+                                drop: function( event, ui ) {
+                                  $( this )
+                                    correctColours++;
+                                    console.log("correct !"+(correctColours));
+                                    if (correctColours > 4) {
+                                      console.log("you did it!");
+                                      $('#redMemory').css({display: 'none'});
+                                      $('#blueMemory').css({display: 'none'});
+                                      $('#yellowMemory').css({display: 'none'});
+                                      $('#greenMemory').css({display: 'none'});
+                                      $('#orangeMemory').css({display: 'none'});
+                                      $('#purpleMemory').css({display: 'none'});
+                                      $('#colorOrder2').css({display: 'block'});
+                                    }
+                                  }
+                                });
+                              }
+
+
                 }
 
 
@@ -333,6 +345,14 @@
     </script>
 
 <body>
+
+<div id= "game">
+
+<div id="gilgamesh">
+</div>
+
+<div id="bubble">
+</div>
 
 <div id= "level1">
   <div id="red" class="ui-widget-content">
@@ -402,7 +422,7 @@
   </div>
 
   <div id="colorOrder2">
-    <p>purple, pink, green, red</p>
+    <p>purple, yellow, green, red</p>
   </div>
 
   <div id="colorOrder3">
@@ -411,9 +431,6 @@
 </div>
 
 
-<div id="gilgamesh"><a href="javascript:image();"></a></div>
-
-
+</div>
 </body>
-
 </html>
