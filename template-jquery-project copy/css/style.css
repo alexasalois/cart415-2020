@@ -275,6 +275,17 @@ body {
   height: 50px;
 }
 
+#scene1 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 15px;
+}
+
 /* LEVEL 4 */
 
 #enkidu {

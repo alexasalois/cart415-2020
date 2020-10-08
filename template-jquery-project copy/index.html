@@ -137,6 +137,10 @@
 /////////////////////////////////////////////////////////////
 
               function level3(){
+
+                $("#scene1").css("display","block");
+                setTimeout(function(){ $('#scene1').css({display: 'none'}); }, 5000)
+
                 $('#level3').css({display: 'block'});
                 $('#ninsun').css({display: 'block'});
                 $('#speech2').css({display: 'block'});
@@ -398,6 +402,11 @@ dream.’"</h4>
 
 <div id="level3">
 
+  <div id="scene1">
+    <p>Gilgamesh got up to tell his dream to his mother, Ninsun, one of the wise gods.
+  ‘Mother, last night I had a dream</p>
+  </div>
+
   <div id="speech2">
   </div>
 
@@ -417,6 +426,7 @@ dream.’"</h4>
   </div>
   <div id="yellow2Mix" class="ui-widget-content">
   </div>
+
 </div>
 
 <div id="level4">
