@@ -92,6 +92,7 @@ body {
   background-color: red;
   width: 50px;
   height: 50px;
+  z-index: 5;
 }
 
 #redtarget {
@@ -110,6 +111,7 @@ body {
   background-color: blue;
   width: 50px;
   height: 50px;
+  z-index: 5;
 }
 
 #bluetarget {
@@ -122,6 +124,7 @@ body {
 }
 
 #yellow {
+  z-index: 5;
   position: absolute;
   left: 150px;
   top: 90px;
@@ -148,6 +151,7 @@ body {
   background-color: green;
   width: 50px;
   height: 50px;
+  z-index: 5;
 }
 
 #greentarget {
@@ -166,6 +170,7 @@ body {
   background-color: orange;
   width: 50px;
   height: 50px;
+  z-index: 5;
 }
 
 #orangetarget {
@@ -184,6 +189,7 @@ body {
   background-color: purple;
   width: 50px;
   height: 50px;
+  z-index: 5;
 }
 
 #purpletarget {
@@ -208,6 +214,7 @@ body {
 }
 
 #confused {
+  display: none;
   position: absolute;
   font-family: 'Press Start 2P',cursive;
   font-size: 60px;
@@ -218,6 +225,7 @@ body {
 
 
 #blueMix {
+  display: none;
   position: absolute;
   right: 320px;
   top: 100px;
@@ -237,6 +245,7 @@ body {
 }
 
 #redMix {
+  display: none;
   position: absolute;
   right: 420px;
   top: 160px;
@@ -283,7 +292,66 @@ body {
   background-color: black;
   color:white;
   font-family: 'Press Start 2P',cursive;
-  font-size: 15px;
+  font-size: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+#scene2 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+#scene3 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 20px;
+  text-align: center;
+  z-index: 11;
+}
+
+#scene4 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 20px;
+  text-align: center;
+  z-index: 12;
+}
+
+h3 {
+  color: red;
+  font-size: 20px;
+  font-family: 'Press Start 2P',cursive;
+}
+
+h4 {
+  color: orange;
+  font-size: 20px;
+  font-family: 'Press Start 2P',cursive;
+}
+
+h5 {
+  color: blue;
+  font-size: 20px;
+  font-family: 'Press Start 2P',cursive;
 }
 
 /* LEVEL 4 */
@@ -321,52 +389,148 @@ body {
 }
 
 #redMemory {
+  top: 110px;
+  right: -250px;
+  position: relative;
   display: none;
   background-color: red;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
 }
 
 #blueMemory {
+  position: relative;
   display: none;
   background-color: blue;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  bottom: 12px;
+  left: 70px;
 }
 
 #yellowMemory {
+  position: relative;
   display: none;
   background-color: yellow;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  left:10px;
+  top: 7px;
 }
 
 #greenMemory {
+  position: relative;
   display: none;
   background-color: green;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  left: 130px;
+  bottom: 45px;
 }
 
 #orangeMemory {
+  position: relative;
   display: none;
   background-color: orange;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  bottom: 220px;
+  left: 190px;
+  z-index: 5;
 }
 
 #purpleMemory {
+  position: relative;
   display: none;
   background-color: purple;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  bottom: 170px;
+  left: 300px;
+  z-index: 5;
 }
 
 #answerBox {
   display: block;
-  color: white;
-  width: 400px;
-  height: 400px;
-  background-color: pink;
+  width: 500px;
+  height: 500px;
+  bottom: 350px;
+  left: 300px;
+  position: relative;
+  background-image: url("../assets/images/speech2_resized.png");
 
+}
+
+#scene5 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 20px;
+  text-align: center;
+  z-index: 13;
+}
+
+#scene6 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 20px;
+  text-align: center;
+  z-index: 14;
+}
+
+#scene7 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 20px;
+  text-align: center;
+  z-index: 14;
+}
+
+#gameOver {
+  font-family: 'Press Start 2P', cursive;
+  width: 225px;
+  height: 50px;
+  font-size: 25px;
+  left: 40%;
+  position: absolute;
+}
+
+#button2 {
+  font-family: 'Press Start 2P', cursive;
+  width: 225px;
+  height: 50px;
+  font-size: 25px;
+  left: 43%;
+  position: absolute;
+}
+
+#scene8 {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  display: none;
+  background-color: black;
+  color:white;
+  font-family: 'Press Start 2P',cursive;
+  font-size: 20px;
+  text-align: center;
+  z-index: 16;
 }

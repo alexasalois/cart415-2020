@@ -32,6 +32,7 @@
       $("#game").css("display","block");
       $("#button").css("display","none");
       $("#intro").css("display","none");
+      level1();
 
       var song = document.getElementById("bgMusic");
       song.play();
@@ -43,7 +44,7 @@
 
 /////////////////////////////////////////////////////////////
 
-    $( function() {
+    function level1() {
       var redPoints = 0;
       var bluePoints = 0;
       var yellowPoints = 0;
@@ -84,7 +85,7 @@
                   }
               }
             });
-          });
+          };
 
 /////////////////////////////////////////////////////////////
 
@@ -137,16 +138,21 @@
 /////////////////////////////////////////////////////////////
 
               function level3(){
+                $('#bubble').css({display: 'none'});
+                $('#level2').css({display: 'none'});
+                $('#speech2').css({display: 'none'});
+                $('#redMix').css({display: 'none'});
+                $('#confused').css({display: 'none'});
 
                 $("#scene1").css("display","block");
-                setTimeout(function(){ $('#scene1').css({display: 'none'}); }, 5000)
+                setTimeout(function(){ $('#scene1').css({display: 'none'}); }, 1000);
 
                 $('#level3').css({display: 'block'});
                 $('#ninsun').css({display: 'block'});
                 $('#speech2').css({display: 'block'});
-
-                $('#bubble').css({display: 'none'});
-                $('#level2').css({display: 'none'});
+                $('#confused').css({display: 'block'});
+                $( "#redMix" ).css({display: 'block'});
+                $( "#blueMix" ).css({display: 'block'});
 
                 $( "#redMix" ).draggable();
                 $( "#blueMix" ).draggable();
@@ -160,6 +166,9 @@
                       drop: function( event, ui ) {
                         $( this )
                         $('#blueMix').css({display: 'none'});
+                        $('#scene2').css({display: 'block'});
+                        setTimeout(function(){$("#scene2").css({display: 'none'}); }, 1000);
+
                         $('#redMix').css({"background-color": 'purple'});
                         $('#red2Mix').css({display: 'block'});
                         $('#yellowMix').css({display: 'block'});
@@ -171,6 +180,9 @@
                       drop: function( event, ui ) {
                         $( this )
                         $('#blueMix').css({display: 'none'});
+                        $('#scene2').css({display: 'block'});
+                        setTimeout(function(){$("#scene2").css({display: 'none'}); }, 1000);
+
                         $('#redMix').css({"background-color": 'purple'});
                         $('#red2Mix').css({display: 'block'});
                         $('#yellowMix').css({display: 'block'});
@@ -182,6 +194,9 @@
                       drop: function( event, ui ) {
                         $( this )
                         $('#red2Mix').css({display: 'none'});
+                        $('#scene3').css({display: 'block'});
+                        setTimeout(function(){$("#scene3").css({display: 'none'}); }, 1000);
+
                         $('#yellowMix').css({"background-color": 'orange'});
                         $('#yellow2Mix').css({display: 'block'});
                         $('#blue2Mix').css({display: 'block'});
@@ -193,6 +208,9 @@
                       drop: function( event, ui ) {
                         $( this )
                         $('#red2Mix').css({display: 'none'});
+                        $('#scene3').css({display: 'block'});
+                        setTimeout(function(){$("#scene3").css({display: 'none'}); }, 1000);
+
                         $('#yellowMix').css({"background-color": 'orange'});
                         $('#yellow2Mix').css({display: 'block'});
                         $('#blue2Mix').css({display: 'block'});
@@ -204,6 +222,9 @@
                       drop: function( event, ui ) {
                         $( this )
                         $('#yellow2Mix').css({display: 'none'});
+                        $('#scene4').css({display: 'block'});
+                        setTimeout(function(){$("#scene4").css({display: 'none'}); }, 1000);
+
                         $('#blue2Mix').css({"background-color": 'green'});
                         level4();
                       }
@@ -215,8 +236,11 @@
                       drop: function( event, ui ) {
                         $( this )
                         $('#yellow2Mix').css({display: 'none'});
+                        $('#scene4').css({display: 'block'});
+                        setTimeout(function(){$("#scene4").css({display: 'none'}); }, 5000);
+
                         $('#blue2Mix').css({"background-color": 'green'});
-                        setTimeout(level4, 5000);
+                        level4();
                       }
                     });
                   }
@@ -229,14 +253,15 @@
                   $("#confused").css("display","none");
                   $("#speech2").css("display","none");
 
+                  $('#level4').css({display: 'block'});
                   $("#ninsun_end").css("display","block");
                   $("#enkidu").css("display","block");
-
-                  var correctColours = 0;
 
                   $('#blue2Mix').css({display: 'none'});
                   $('#yellowMix').css({display: 'none'});
                   $('#redMix').css({display: 'none'});
+
+                  var correctColours = 0;
 
                   $( "#blueMemory" ).draggable();
                   $( "#redMemory" ).draggable();
@@ -245,11 +270,7 @@
                   $( "#orangeMemory" ).draggable();
                   $( "#purpleMemory" ).draggable();
 
-                  $('#level4').css({display: 'block'});
-                  $('#colorOrder1').css({display: 'block'});
-
-                  setTimeout(function(){ $('#colorOrder1').css({display: 'none'}); }, 5000);
-                  setTimeout(spawnBlocks, 5000);
+                  spawnBlocks();
 
                   function spawnBlocks() {
                     $('#redMemory').css({display: 'block'});
@@ -258,6 +279,7 @@
                     $('#greenMemory').css({display: 'block'});
                     $('#orangeMemory').css({display: 'block'});
                     $('#purpleMemory').css({display: 'block'});
+                    $('#answerBox').css({display: 'block'});
 
                     $( "#answerBox" ).droppable({
                         accept: "#redMemory,#orangeMemory,#blueMemory",
@@ -266,16 +288,9 @@
                             correctColours++;
                             console.log("correct !"+(correctColours));
                             if (correctColours > 2) {
-                              $('#redMemory').css({display: 'none'});
-                              $('#blueMemory').css({display: 'none'});
-                              $('#yellowMemory').css({display: 'none'});
-                              $('#greenMemory').css({display: 'none'});
-                              $('#orangeMemory').css({display: 'none'});
-                              $('#purpleMemory').css({display: 'none'});
-                              $('#colorOrder2').css({display: 'block'});
-
-                              setTimeout(function(){ $('#colorOrder2').css({display: 'none'}); }, 5000);
-                              setTimeout(spawnBlocks2,5000);
+                              $('#scene5').css({display: 'block'});
+                              setTimeout(function(){$("#scene5").css({display: 'none'}); }, 6000)
+                              spawnBlocks2();
                             }
                           }
                         });
@@ -283,12 +298,12 @@
 
                       function spawnBlocks2() {
                         correctColours = 0;
-                        $('#redMemory').css({display: 'block',position: 'fixed'});
-                        $('#blueMemory').css({display: 'block',position: 'fixed'});
-                        $('#yellowMemory').css({display: 'block',position: 'fixed'});
-                        $('#greenMemory').css({display: 'block',position: 'fixed'});
-                        $('#orangeMemory').css({display: 'block',position: 'fixed'});
-                        $('#purpleMemory').css({display: 'block',position: 'fixed'});
+                        $('#redMemory').css({display: 'block',top:'110px', right: '-250px'});
+                        $('#blueMemory').css({display: 'block', bottom: '12px', left: '70px'});
+                        $('#yellowMemory').css({display: 'block', left:'10px', top: '7px'});
+                        $('#greenMemory').css({display: 'block', left: '130px', bottom: '45px'});
+                        $('#orangeMemory').css({display: 'block', bottom: '220px', left: '190px'});
+                        $('#purpleMemory').css({display: 'block', bottom: '170px',  left: '300px'});
 
                         $( "#answerBox" ).droppable({
                             accept: "#purpleMemory,#yellowMemory,#greenMemory,#redMemory",
@@ -297,17 +312,9 @@
                                 correctColours++;
                                 console.log("correct !"+(correctColours));
                                 if (correctColours > 3) {
-                                  console.log("you did it!");
-                                  $('#redMemory').css({display: 'none'});
-                                  $('#blueMemory').css({display: 'none'});
-                                  $('#yellowMemory').css({display: 'none'});
-                                  $('#greenMemory').css({display: 'none'});
-                                  $('#orangeMemory').css({display: 'none'});
-                                  $('#purpleMemory').css({display: 'none'});
-                                  $('#colorOrder3').css({display: 'block'});
-
-                                  setTimeout(function(){ $('#colorOrder3').css({display: 'none'}); }, 5000);
-                                  setTimeout(spawnBlocks3,5000);
+                                  $('#scene6').css({display: 'block'});
+                                  setTimeout(function(){$("#scene6").css({display: 'none'}); }, 7000)
+                                  spawnBlocks3();
                                 }
                               }
                             });
@@ -315,12 +322,12 @@
 
                           function spawnBlocks3() {
                             correctColours = 0;
-                            $('#redMemory').css({display: 'block',position: 'fixed'});
-                            $('#blueMemory').css({display: 'block',position: 'fixed'});
-                            $('#yellowMemory').css({display: 'block',position: 'fixed'});
-                            $('#greenMemory').css({display: 'block',position: 'fixed'});
-                            $('#orangeMemory').css({display: 'block',position: 'fixed'});
-                            $('#purpleMemory').css({display: 'block',position: 'fixed'});
+                            $('#redMemory').css({display: 'block',top:'110px', right: '-250px'});
+                            $('#blueMemory').css({display: 'block', bottom: '12px', left: '70px'});
+                            $('#yellowMemory').css({display: 'block', left:'10px', top: '7px'});
+                            $('#greenMemory').css({display: 'block', left: '130px', bottom: '45px'});
+                            $('#orangeMemory').css({display: 'block', bottom: '220px', left: '190px'});
+                            $('#purpleMemory').css({display: 'block', bottom: '170px',  left: '300px'});
 
                             $( "#answerBox" ).droppable({
                                 accept: "#yellowMemory,#blueMemory,#orangeMemory,#purpleMemory,#greenMemory",
@@ -329,30 +336,30 @@
                                     correctColours++;
                                     console.log("correct !"+(correctColours));
                                     if (correctColours > 4) {
-                                      console.log("you did it!");
-                                      $('#redMemory').css({display: 'none'});
-                                      $('#blueMemory').css({display: 'none'});
-                                      $('#yellowMemory').css({display: 'none'});
-                                      $('#greenMemory').css({display: 'none'});
-                                      $('#orangeMemory').css({display: 'none'});
-                                      $('#purpleMemory').css({display: 'none'});
-                                      $('#colorOrder2').css({display: 'block'});
+                                      $('#scene7').css({display: 'block'});
                                     }
                                   }
                                 });
                               }
+                            }
 
+                            function finalScene() {
+                              $('#game').css({display: 'none'})
+                              $('#scene8').css({display: 'block'});
+                              $('#button').css({display: 'block'});
+                            }
 
-                }
+                            function ending() {
+                              alert("Shh! I'm sleeping... please close the browser page.");
+                            }
 
+                    </script>
 
-
-    </script>
 
 <body>
-<h4 id="intro">"There Gilgamesh dug a well before the setting-sun. <br>He went up the mountain and poured out
+<h2 id="intro">"There Gilgamesh dug a well before the setting-sun. <br>He went up the mountain and poured out
 fine meal on the ground and said, <br>‘O mountain, dwelling of the gods, bring me a favourable
-dream.’"</h4>
+dream.’"</h2><br><br>
 <button id="button" onclick="startGame()">Wake Up</button>
 
 <audio id="bgMusic">
@@ -403,8 +410,21 @@ dream.’"</h4>
 <div id="level3">
 
   <div id="scene1">
-    <p>Gilgamesh got up to tell his dream to his mother, Ninsun, one of the wise gods.
-  ‘Mother, last night I had a dream</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>Gilgamesh got up to tell his dream to his mother,Ninsun, one of the wise gods.<br><br><br>
+  ‘Mother, last night I had a dream'
+  <br><br><br>...</p>
   </div>
 
   <div id="speech2">
@@ -427,6 +447,41 @@ dream.’"</h4>
   <div id="yellow2Mix" class="ui-widget-content">
   </div>
 
+  <div id="scene2">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>"This star of heaven which descended like a meteor from the sky; <br><br><br>which you tried to lift, but found too heavy, when you
+tried to move it <br><br><br>it would not budge, and so you brought it to my feet;"<br><br><br>
+  <br>...</p>
+  </div>
+
+<div id="scene3">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>"He is the strongest of wild creatures, the stuff of Anu;<br><br><br>born
+in the grass-lands and the wild hills reared him;<br><br><br> when you see him you will be glad;<br><br><br>...</p>
+</div>
+
+<div id="scene4">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>"This is the meaning of the dream, Gilgamesh."<br><br><br> and the harlot retold them to Enkidu:<br><br><br> <h3>‘When I look at you you have become like a god.</h3>
+  <br><h4>Why do you yearn to run wild again</h4><br> <h5>with the beasts in the hills?'</h5> </p>
+</div>
+
 </div>
 
 <div id="level4">
@@ -435,6 +490,46 @@ dream.’"</h4>
 </div>
 
 <div id="ninsun_end">
+</div>
+
+<div id="scene5">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p> <span style="color:purple">"Get up</span> <br><br><br> <span style="color:yellow">from the ground,</span> <br><br><br> <span style="color:green">the bed of</span>
+    <br><br><br> <span style="color:red">a shepherd..."</span></p>
+</div>
+
+<div id="scene6">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p> <span style="color:yellow">He listened </span> <br><br><br> <span style="color:blue">to her words </span> <br><br><br> <span style="color:orange">with care. </span>
+    <br><br><br> <span style="color:purple">It was good advice </span> <br><br><br> <span style="color:green">that she gave. </span></p>
+</div>
+
+<div id="scene7">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>"Mother? <br><br>I dreamed a second dream........"</p> <br><br><br><br>
+  <button id="gameOver" onclick="finalScene()"
+  >sleep</button>
 </div>
 
   <div id="redMemory" class="ui-widget-content">
@@ -451,23 +546,28 @@ dream.’"</h4>
   </div>
 
 <div id="answerBox">
-  <p>drop colours here</p>
+</div>
 </div>
 
-  <div id="colorOrder1">
-    <p>red, orange, blue</p>
-  </div>
-
-  <div id="colorOrder2">
-    <p>purple, yellow, green, red</p>
-  </div>
-
-  <div id="colorOrder3">
-    <p>yellow, blue, orange, purple, green </p>
-  </div>
 </div>
 
-
+<div id="scene8">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>Thank you for playing :)</p> <br><br><br>
+  <p><span style="font-size:12px">Design & Graphics by Alex</span></p>
+  <p><span style="font-size:12px">Music by Pixel Beats</span></p>
+  <br>
+  <br>
+  <button id="button2" onclick="ending()";>Wake Up</button>
 </div>
+
 </body>
 </html>
