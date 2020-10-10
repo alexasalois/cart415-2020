@@ -281,6 +281,8 @@
                     $('#purpleMemory').css({display: 'block'});
                     $('#answerBox').css({display: 'block'});
 
+                    $('#help1').css({display: 'block'});
+
                     $( "#answerBox" ).droppable({
                         accept: "#redMemory,#orangeMemory,#blueMemory",
                         drop: function( event, ui ) {
@@ -288,6 +290,7 @@
                             correctColours++;
                             console.log("correct !"+(correctColours));
                             if (correctColours > 2) {
+                              $('#help1').css({display: 'none'});
                               $('#scene5').css({display: 'block'});
                               setTimeout(function(){$("#scene5").css({display: 'none'}); }, 6000)
                               spawnBlocks2();
@@ -305,6 +308,8 @@
                         $('#orangeMemory').css({display: 'block', bottom: '220px', left: '190px'});
                         $('#purpleMemory').css({display: 'block', bottom: '170px',  left: '300px'});
 
+                        $('#help2').css({display: 'block'});
+
                         $( "#answerBox" ).droppable({
                             accept: "#purpleMemory,#yellowMemory,#greenMemory,#redMemory",
                             drop: function( event, ui ) {
@@ -312,6 +317,7 @@
                                 correctColours++;
                                 console.log("correct !"+(correctColours));
                                 if (correctColours > 3) {
+                                  $('#help2').css({display: 'none'});
                                   $('#scene6').css({display: 'block'});
                                   setTimeout(function(){$("#scene6").css({display: 'none'}); }, 7000)
                                   spawnBlocks3();
@@ -329,6 +335,8 @@
                             $('#orangeMemory').css({display: 'block', bottom: '220px', left: '190px'});
                             $('#purpleMemory').css({display: 'block', bottom: '170px',  left: '300px'});
 
+                            $('#help3').css({display: 'block'});
+
                             $( "#answerBox" ).droppable({
                                 accept: "#yellowMemory,#blueMemory,#orangeMemory,#purpleMemory,#greenMemory",
                                 drop: function( event, ui ) {
@@ -336,6 +344,7 @@
                                     correctColours++;
                                     console.log("correct !"+(correctColours));
                                     if (correctColours > 4) {
+                                      $('#help3').css({display: 'none'});
                                       $('#scene7').css({display: 'block'});
                                     }
                                   }
@@ -352,6 +361,22 @@
                             function ending() {
                               alert("Shh! I'm sleeping... please close the browser page.");
                             }
+
+                            function help1() {
+                              $('#scene4').css({display: 'block'});
+                              setTimeout(function(){$("#scene4").css({display: 'none'}); }, 2000);
+                            }
+
+                            function help2() {
+                              $('#scene5').css({display: 'block'});
+                              setTimeout(function(){$("#scene5").css({display: 'none'}); }, 2000);
+                            }
+
+                            function help3() {
+                              $('#scene6').css({display: 'block'});
+                              setTimeout(function(){$("#scene6").css({display: 'none'}); }, 2000);
+                            }
+
 
                     </script>
 
@@ -485,7 +510,6 @@ in the grass-lands and the wild hills reared him;<br><br><br> when you see him y
 </div>
 
 <div id="level4">
-
 <div id="enkidu">
 </div>
 
@@ -531,6 +555,10 @@ in the grass-lands and the wild hills reared him;<br><br><br> when you see him y
   <button id="gameOver" onclick="finalScene()"
   >sleep</button>
 </div>
+
+<button id="help1" onclick="help1()">I can't remember...</button>
+<button id="help2" onclick="help2()">What was it again?</button>
+<button id="help3" onclick="help3()">I need to remember...</button>
 
   <div id="redMemory" class="ui-widget-content">
   </div>
