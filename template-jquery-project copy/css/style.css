@@ -542,3 +542,9 @@ h5 {
     height: 50px;
     font-size: 15px;
 }
+
+h6 {
+  color: red;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 19px;
+}
