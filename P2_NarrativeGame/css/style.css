@@ -1,0 +1,21 @@
+/*********************************************
+
+This is the style file for this project.
+
+**********************************************/
+
+#level2 {
+  display: none;
+}
+
+#level3 {
+  display:none;
+}
+
+* {
+  font-family: 'Press Start 2P', cursive;
+}
+
+#thought1,#thought2,#thought3,#thought4,#thought5 {
+  background-color: beige;
+}
