@@ -36,6 +36,13 @@ This is the style file for this project.
   text-align: center;
 }
 
+#environment1 {
+  position: absolute;
+  display: block;
+  background-color: red;
+  z-index: 5555;
+}
+
 #miniGame2 {
   position: absolute;
   left: 400px;
@@ -72,4 +79,27 @@ This is the style file for this project.
   position: absolute;
   display:none;
   text-align: center;
+}
+
+
+#thought6,#thought7,#thought8,#thought9,#thought10 {
+  color: black;
+}
+
+#miniGame2_medium {
+  position: absolute;
+  left: 400px;
+  width: 200px;
+}
+
+#miniGame3_medium {
+  position: absolute;
+  left: 250px;
+  width: 500px;
+}
+
+#miniGame4_medium {
+  position: absolute;
+  left: 200px;
+  width:600px;
 }

@@ -26,6 +26,8 @@
 
     // FIRST MINI GAME: just wait... //
     function miniGame1() {
+      $("#environment1").css("display","block");
+
       $( "#thought1" ).dialog();
         setTimeout(function () {
         $( "#thought2" ).dialog();
@@ -46,7 +48,6 @@
 
     // SECOND MINI GAME: paying bus fare //
     function miniGame2 () {
-      console.log("im in here now");
       $("#level1").css("display","block");
       $("#miniGame2").css("display", "block");
 
@@ -83,7 +84,7 @@
     function pointSystem() {
       sleepPoints = sleepPoints - 1;
 
-      if (sleepPoints > 6) {
+      if (sleepPoints > 5) {
         console.log("success!");
         miniGame4();
       }
@@ -104,7 +105,7 @@
 
               var sliderValue = ui.value;
 
-              if (sliderValue == 70) {
+              if (sliderValue = 70) {
                 setTimeout(endOfLevel1,2000);
               }
             }
@@ -115,8 +116,84 @@
       function endOfLevel1() {
         $("#miniGame4").css("display", "none");
         $("#level1End").css("display", "block");
+
+        setTimeout(miniGame1_medium,3000);
       }
 
+
+      function miniGame1_medium() {
+        $("#level2").css("display", "block");
+        $("#miniGame1_medium").css("display", "block");
+
+        $("#level1End").css("display", "none");
+        $("#level1").css("display", "none");
+        $("#miniGame2_medium").css("display", "none");
+        $("#miniGame3_medium").css("display", "none");
+        $("#miniGame4_medium").css("display", "none");
+
+        $( "#thought6" ).dialog();
+          setTimeout(function () {
+          $( "#thought7" ).dialog();
+          }, 4000);
+            setTimeout(function () {
+            $( "#thought8" ).dialog();
+            }, 7000);
+              setTimeout(function () {
+              $( "#thought9" ).dialog();
+              }, 10000);
+            setTimeout(function () {
+            $( "#thought10" ).dialog();
+            }, 13000);
+
+            setTimeout(miniGame2_medium,17000);
+      }
+
+      function miniGame2_medium() {
+        $("#level1").css("display","block");
+        $("#miniGame2_medium").css("display", "block");
+
+        $("#miniGame1_medium").css("display", "none");
+        $("#miniGame3_medium").css("display", "none");
+        $("#miniGame4_medium").css("display", "none");
+
+
+          $( "#draggable2" ).draggable();
+          $( "#droppable2" ).droppable({
+              drop: function( event, ui ) {
+              $( this )
+              .addClass( "ui-state-highlight" )
+              .find( "p" )
+              .html( "correct fare!" );
+              $("#draggable2").css("display","none");
+              setTimeout(miniGame3_medium,3000);
+              }
+            });
+          }
+
+        function miniGame3_medium() {
+          $("#miniGame2_medium").css("display", "none");
+          $("#miniGame3_medium").css("display", "block");
+          }
+
+          var sleepPoints2 = 0;
+          function addPoints2() {
+          sleepPoints2++;
+          setTimeout(pointSystem2,2000);
+          }
+
+          function pointSystem2() {
+          sleepPoints2 = sleepPoints2 - 1;
+          console.log(sleepPoints2);
+
+          if (sleepPoints2 > 8) {
+            console.log("success!");
+            miniGame4_medium();
+          }
+        }
+
+        function miniGame4_medium() {
+          console.log("yass");
+        }
 
 
 </script>
@@ -156,6 +233,26 @@
     <div id="thought5" title="**^%$$##^))">
       <p>Why is the bus always late?</p>
     </div>
+
+    <div id="environment1">
+      <div id="tree">
+        <p>just a tree. all the leaves have fallen.</p>
+      </div>
+
+      <div id="can">
+        <p>an empty can of pepsi.</p>
+      </div>
+
+      <div id="bench">
+        <p>glad i can sit here.</p>
+      </div>
+
+      <div id="lamppost">
+        <p>so many spiderwebs on that thing, gross!</p>
+      </div>
+    </div>
+
+
   </div>
 
   <!-- SECOND MINI GAME: GET ON BUS - PAY FOR BUS FARE -->
@@ -170,7 +267,6 @@
     </div>
   </div>
 
-
   <!-- THIRD MINI GAME: BUS RIDE -->
   <div id="miniGame3">
     <p>game 3</p>
@@ -180,7 +276,6 @@
     <button id="sleepy" onclick="addPoints()">Open Your Eyes</button>
   </div>
 
-
   <!-- FOURTH MINI GAME: GET OFF THE BUS -->
   <div id="miniGame4">
     <p>Time to get off the bus! Bus stop number 70!</p>
@@ -189,31 +284,50 @@
   </div>
 
   <div id="level1End">
-    <p>trip 1 completed :) you made it 'home'</p>
+    <p>trip 1 completed :) <br><br>you made it 'home'</p>
   </div>
-
-
 </div>
 <!-- END OF LEVEL 1 -->
 
-
-
 <div id="level2">
   <div id="miniGame1_medium">
-    <p>game 1 medium</p>
+      <div id="thought6" title="?#%^*$!)#*()">
+        <p>Who was that?</p>
+      </div>
+      <div id="thought7" title="#$%^*(%^))">
+        <p>I think they were looking at me.</p>
+      </div>
+      <div id="thought8" title="^!@#$@*$***()">
+        <p>Do I look weird? I hope I'm not making it weird.</p>
+      </div>
+      <div id="thought9" title="!@##$%^()())">
+        <p>When is the bus coming?</p>
+      </div>
+      <div id="thought10" title="**^%$$##^))">
+        <p>Wait, why am I taking the bus again?</p>
+      </div>
   </div>
 
   <div id="miniGame2_medium">
-    <p>game 2 medium</p>
-  </div>
+    <p>pay!^ for your fa&re!</p>
+    <div id="draggable2" class="ui-widget-content">
+      <p>money</p>
+    </div>
+
+    <div id="droppable2" class="ui-widget-header">
+      <p>bus driver</p>
+    </div>  </div>
 
   <div id="miniGame3_medium">
-    <p>game 3 medium</p>
-  </div>
+    <p>waiting....!.......!?....</p>
+    <p>don't fall asleep</p>
+    <p>sp@m the button! kee p your eyes 0penN!! quick!</p>
+    <button id="sleepy2" onclick="addPoints2()">OpenNn Y our  Ey3s</button>  </div>
 
   <div id="miniGame4_medium">
-    <p>game 4 medium</p>
-  </div>
+    <p>Time to get off the bus!dontgetoFfthEbUS:)) Bus stop number 45#!</p>
+    <div id="miniGameSlider"></div>
+    <div id="value">Value: </div>  </div>
 </div>
 
 <div id="level3">
