@@ -9,7 +9,6 @@ This is the style file for this project.
 }
 
 #thought1,#thought2,#thought3,#thought4,#thought5 {
-  background-color: beige;
 }
 
 #game {
@@ -102,4 +101,8 @@ This is the style file for this project.
   position: absolute;
   left: 200px;
   width:600px;
+}
+
+#thought11,#thought12,#thought13,#thought14,#thought15 {
+  color: black;
 }

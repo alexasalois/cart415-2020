@@ -130,6 +130,8 @@
         $("#miniGame2_medium").css("display", "none");
         $("#miniGame3_medium").css("display", "none");
         $("#miniGame4_medium").css("display", "none");
+        $("#level2End").css("display", "none");
+
 
         $( "#thought6" ).dialog();
           setTimeout(function () {
@@ -183,7 +185,6 @@
 
           function pointSystem2() {
           sleepPoints2 = sleepPoints2 - 1;
-          console.log(sleepPoints2);
 
           if (sleepPoints2 > 8) {
             console.log("success!");
@@ -192,7 +193,60 @@
         }
 
         function miniGame4_medium() {
-          console.log("yass");
+          $("#miniGame3_medium").css("display", "none");
+          $("#miniGame4_medium").css("display", "block");
+
+            $( function() {
+              var slider2 = $( "#miniGameSlider2" ).slider({
+                min: 0,
+                max: 100,
+                step: 5,
+                slide: function(event, ui) {
+                  $("#miniGameSlider2" ).val( ui.value );
+                  $("#value2").html(ui.value);
+
+                  var sliderValue2 = ui.value;
+
+                  if (sliderValue2 = 45) {
+                    setTimeout(endOfLevel2,2000);
+                  }
+                }
+              });
+            });
+          }
+
+        function endOfLevel2() {
+          $("#miniGame4_medium").css("display", "none");
+          $("#level2End").css("display", "block");
+
+          setTimeout(miniGame1_hard,3000);
+        }
+
+        function miniGame1_hard() {
+          $("#level3").css("display", "block");
+          $("#miniGame1_hard").css("display", "block");
+
+          $("#level2End").css("display", "none");
+          $("#level2").css("display", "none");
+          $("#miniGame2_hard").css("display", "none");
+          $("#miniGame3_hard").css("display", "none");
+          $("#miniGame4_hard").css("display", "none");
+
+          $( "#thought11" ).dialog();
+            setTimeout(function () {
+            $( "#thought12" ).dialog();
+            }, 4000);
+              setTimeout(function () {
+              $( "#thought13" ).dialog();
+              }, 7000);
+                setTimeout(function () {
+                $( "#thought14" ).dialog();
+                }, 10000);
+              setTimeout(function () {
+              $( "#thought15" ).dialog();
+              }, 13000);
+
+              //setTimeout(miniGame2_medium,17000);
         }
 
 
@@ -316,23 +370,45 @@
 
     <div id="droppable2" class="ui-widget-header">
       <p>bus driver</p>
-    </div>  </div>
+    </div>
+  </div>
 
   <div id="miniGame3_medium">
     <p>waiting....!.......!?....</p>
     <p>don't fall asleep</p>
     <p>sp@m the button! kee p your eyes 0penN!! quick!</p>
-    <button id="sleepy2" onclick="addPoints2()">OpenNn Y our  Ey3s</button>  </div>
+    <button id="sleepy2" onclick="addPoints2()">OpenNn Y our  Ey3s</button>
+  </div>
 
   <div id="miniGame4_medium">
     <p>Time to get off the bus!dontgetoFfthEbUS:)) Bus stop number 45#!</p>
-    <div id="miniGameSlider"></div>
-    <div id="value">Value: </div>  </div>
+    <div id="miniGameSlider2"></div>
+    <div id="value2">Value: </div>
+  </div>
+
+  <div id="level2End">
+    <p>trip 2 completed :) <br><br>you ?made it ?? 'home'</p>
+  </div>
+
 </div>
 
 <div id="level3">
   <div id="miniGame1_hard">
-    <p>game 1 hard</p>
+    <div id="thought11" title="?#%^*$!)#*()">
+      <p>Who the fuck was that</p>
+    </div>
+    <div id="thought12" title="#$%^*(%^))">
+      <p>Who was that</p>
+    </div>
+    <div id="thought13" title="^!@#$@*$***()">
+      <p>They're following me</p>
+    </div>
+    <div id="thought14" title="!@##$%^()())">
+      <p>I think he's following me</p>
+    </div>
+    <div id="thought15" title="**^%$$##^))">
+      <p>Stop following me</p>
+    </div>
   </div>
 
   <div id="miniGame2_hard">
