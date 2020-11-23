@@ -30,9 +30,11 @@ This is the style file for this project.
 }
 
 #level1 {
-  position: absolute;
+  position: relative;
   top: 180px;
   text-align: center;
+  background-image: url("../assets/images/vignette2 bg.png");
+  background-repeat: no-repeat;
 }
 
 #environment1 {
@@ -40,6 +42,12 @@ This is the style file for this project.
   display: block;
   background-color: red;
   z-index: 5555;
+}
+
+#miniGame1 {
+  background-image: url("../assets/images/vignette2 bg.png");
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 #miniGame2 {
@@ -67,7 +75,7 @@ This is the style file for this project.
 }
 
 #level2 {
-  position: absolute;
+  position: relative;
   top: 180px;
   display: none;
   text-align: center;
@@ -75,7 +83,7 @@ This is the style file for this project.
 
 #level3 {
   top:180px;
-  position: absolute;
+  position: relative;
   display:none;
   text-align: center;
 }
@@ -105,4 +113,36 @@ This is the style file for this project.
 
 #thought11,#thought12,#thought13,#thought14,#thought15 {
   color: black;
+}
+
+#money {
+  position: absolute;
+  top: 235px;
+  right: 325px;
+  z-index: 55555555;
+}
+
+#candy {
+  position: absolute;
+  bottom: 5px;
+  right: 275px;
+}
+
+#bug {
+  position: absolute;
+  top: -210px;
+  left: 300px;
+  z-index: 1000000;
+}
+
+#picture {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+}
+
+#droppable {
+  position: absolute;
+  left: 200px;
+  top: 200px;
 }

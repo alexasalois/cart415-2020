@@ -22,6 +22,13 @@
     function startGame() {
       $("#mainMenu").css("display", "none");
       miniGame1();
+
+      var song = document.getElementById("bgMusic");
+            song.play();
+            song.addEventListener('ended', function() {
+              this.currentTime = 0;
+              this.play();
+            }, false);
     }
 
     // FIRST MINI GAME: just wait... //
@@ -57,22 +64,29 @@
       $("#miniGame4").css("display", "none");
 
 
-        $( "#draggable" ).draggable();
-        $( "#droppable" ).droppable({
-            drop: function( event, ui ) {
-            $( this )
-            .addClass( "ui-state-highlight" )
-            .find( "p" )
-            .html( "correct fare!" );
-            $("#draggable").css("display","none");
-            setTimeout(miniGame3,3000);
+        $( "#money" ).draggable();
+        $( "#notdraggable" ).draggable();
+        $( "#notdraggable2" ).draggable();
+        $( "#notdraggable3" ).draggable();
+
+              $( "#droppable" ).droppable({
+                accept: "#money",
+
+                drop: function( event, ui ) {
+                  $( this )
+                    $("#draggable").css("display","none");
+                    setTimeout(miniGame3,3000);
+                }
+              });
             }
-          });
-        }
 
     function miniGame3() {
       $("#miniGame2").css("display", "none");
       $("#miniGame3").css("display", "block");
+
+      $("#halfeyes").css("display", "none");
+      $("#openedeyes").css("display", "none");
+
     }
 
     var sleepPoints = 0;
@@ -84,9 +98,20 @@
     function pointSystem() {
       sleepPoints = sleepPoints - 1;
 
+      if (sleepPoints < 6 && sleepPoints > 2) {
+        $("#halfeyes").css("display", "block");
+        $("#closedeyes").css("display", "none");
+        $("#openedeyes").css("display", "none");
+      }
+
+
       if (sleepPoints > 5) {
+        $("#halfeyes").css("display", "none");
+        $("#closedeyes").css("display", "none");
+        $("#openedeyes").css("display", "block");
+
         console.log("success!");
-        miniGame4();
+        setTimeout(miniGame4,3000);
       }
     }
 
@@ -255,6 +280,10 @@
 
 <body>
 
+  <audio id="bgMusic">
+    <source src="assets/sounds/fall_8bit_drone.mp3" type="audio/mpeg">
+  </audio>
+
 <div id="game">
 
 <!-- HOME SCREEN -->
@@ -288,57 +317,61 @@
       <p>Why is the bus always late?</p>
     </div>
 
-    <div id="environment1">
-      <div id="tree">
-        <p>just a tree. all the leaves have fallen.</p>
-      </div>
-
-      <div id="can">
-        <p>an empty can of pepsi.</p>
-      </div>
-
-      <div id="bench">
-        <p>glad i can sit here.</p>
-      </div>
-
-      <div id="lamppost">
-        <p>so many spiderwebs on that thing, gross!</p>
-      </div>
-    </div>
-
 
   </div>
 
   <!-- SECOND MINI GAME: GET ON BUS - PAY FOR BUS FARE -->
   <div id="miniGame2">
     <p>pay for your fare!</p>
-    <div id="draggable" class="ui-widget-content">
-      <p>money</p>
+    <div id="draggable">
+      <img id="money" src="assets/images/coin_small.png">
     </div>
 
-    <div id="droppable" class="ui-widget-header">
-      <p>bus driver</p>
+    <div id="notdraggable">
+      <img id="candy" src="assets/images/candyredo.png">
+    </div>
+
+    <div id="notdraggable2">
+      <img id="bug" src="assets/images/bugredo.png">
+    </div>
+
+    <div id="notdraggable3">
+      <img id="picture" src="assets/images/picture_small.png">
+    </div>
+
+    <div id="droppable">
+      <img id="hand" src="assets/images/hand.png">
     </div>
   </div>
 
   <!-- THIRD MINI GAME: BUS RIDE -->
   <div id="miniGame3">
-    <p>game 3</p>
-    <p>waiting...............</p>
-    <p>don't fall asleep</p>
-    <p>spam the button! keep your eyes open!! quick!</p>
+    <p>don't fall asleep.</p>
+    <br>
+    <p>spam the button quickly to stay awake.</p>
+    <br>
+    <br>
     <button id="sleepy" onclick="addPoints()">Open Your Eyes</button>
+
+    <img id="closedeyes" src="assets/images/closed.png">
+    <img id="halfeyes" src="assets/images/halfopened.png">
+    <img id="openedeyes" src="assets/images/opened.png">
   </div>
 
   <!-- FOURTH MINI GAME: GET OFF THE BUS -->
   <div id="miniGame4">
-    <p>Time to get off the bus! Bus stop number 70!</p>
+    <p>Time to get off the bus. Bus stop number 70...</p>
+    <br>
     <div id="miniGameSlider"></div>
     <div id="value">Value: </div>
   </div>
 
   <div id="level1End">
-    <p>trip 1 completed :) <br><br>you made it 'home'</p>
+    <p>H0me?</p>
+    <br>
+    <br>
+    <br>
+    <p>"Not that it was beautiful, <br> but that, in the end, <br> there was a certain sense of order there;"</p>
   </div>
 </div>
 <!-- END OF LEVEL 1 -->
@@ -374,9 +407,12 @@
   </div>
 
   <div id="miniGame3_medium">
-    <p>waiting....!.......!?....</p>
-    <p>don't fall asleep</p>
-    <p>sp@m the button! kee p your eyes 0penN!! quick!</p>
+    <p>don't</p>
+    <p>fall</p>
+    <p>asleep.</p>
+    <p>sp@m the button! kee p your eyes 0penN!</p>
+    <br>
+    <br>
     <button id="sleepy2" onclick="addPoints2()">OpenNn Y our  Ey3s</button>
   </div>
 
@@ -387,7 +423,16 @@
   </div>
 
   <div id="level2End">
-    <p>trip 2 completed :) <br><br>you ?made it ?? 'home'</p>
+    <p>hom3!!:) <br><br>you ?made it ?? 'home?'</p>
+    <br>
+    <br>
+    <br>
+    <p>something worth learning
+<br>in that narrow diary of my mind,
+<br>in the commonplaces of the asylum
+<br>where the cracked mirror
+<br>or my own selfish death
+<br>outstared me . . .</p>
   </div>
 
 </div>
