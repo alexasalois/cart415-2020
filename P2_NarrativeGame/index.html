@@ -55,8 +55,18 @@
 
     // SECOND MINI GAME: paying bus fare //
     function miniGame2 () {
+      $("#text1").css("display","block");
+      $("#miniGame2").css("display", "none");
+      $("#text2").css("display", "none");
+      $("#text3").css("display", "none");
+
+      setTimeout(function () {
+        $("#text1").css("display","none");
+        $("#miniGame2").css("display", "block");
+      },6000);
+
+
       $("#level1").css("display","block");
-      $("#miniGame2").css("display", "block");
 
       $("#level1End").css("display", "none");
       $("#miniGame1").css("display", "none");
@@ -75,17 +85,28 @@
                 drop: function( event, ui ) {
                   $( this )
                     $("#draggable").css("display","none");
+                    $("#notdraggable2").css("display","none");
+                    $("#notdraggable").css("display","none");
+                    $("#droppable").css("display","none");
+                    $("#busrules").css("display","none");
+
                     setTimeout(miniGame3,3000);
                 }
               });
             }
 
     function miniGame3() {
+      $("#text2").css("display","block");
+      $("#text3").css("display","none");
       $("#miniGame2").css("display", "none");
-      $("#miniGame3").css("display", "block");
-
+      $("#miniGame3").css("display", "none");
       $("#halfeyes").css("display", "none");
       $("#openedeyes").css("display", "none");
+
+      setTimeout(function () {
+        $("#text2").css("display","none");
+        $("#miniGame3").css("display", "block");
+      },8000);
 
     }
 
@@ -117,7 +138,14 @@
 
     function miniGame4() {
       $("#miniGame3").css("display", "none");
-      $("#miniGame4").css("display", "block");
+      $("#miniGame4").css("display", "none");
+      $("#text3").css("display", "block");
+
+      setTimeout(function () {
+        $("#text3").css("display","none");
+        $("#miniGame4").css("display", "block");
+      },8000);
+
 
         $( function() {
           var slider = $( "#miniGameSlider" ).slider({
@@ -131,7 +159,7 @@
               var sliderValue = ui.value;
 
               if (sliderValue = 70) {
-                setTimeout(endOfLevel1,2000);
+                setTimeout(endOfLevel1,3000);
               }
             }
           });
@@ -142,7 +170,7 @@
         $("#miniGame4").css("display", "none");
         $("#level1End").css("display", "block");
 
-        setTimeout(miniGame1_medium,3000);
+        setTimeout(miniGame1_medium,8000);
       }
 
 
@@ -185,12 +213,13 @@
 
 
           $( "#draggable2" ).draggable();
+          $( "#draggable3" ).draggable();
+          $( "#draggable4" ).draggable();
+          $( "#draggable5" ).draggable();
+
           $( "#droppable2" ).droppable({
               drop: function( event, ui ) {
               $( this )
-              .addClass( "ui-state-highlight" )
-              .find( "p" )
-              .html( "correct fare!" );
               $("#draggable2").css("display","none");
               setTimeout(miniGame3_medium,3000);
               }
@@ -200,6 +229,9 @@
         function miniGame3_medium() {
           $("#miniGame2_medium").css("display", "none");
           $("#miniGame3_medium").css("display", "block");
+
+          $("#halfeyes").css("display", "none");
+          $("#openedeyes").css("display", "none");
           }
 
           var sleepPoints2 = 0;
@@ -211,7 +243,15 @@
           function pointSystem2() {
           sleepPoints2 = sleepPoints2 - 1;
 
+          if (sleepPoints2 > 4 && sleepPoints2 < 9) {
+            $("#halfeyes").css("display", "block");
+            $("#closedeyes").css("display", "none");
+          }
+
+
           if (sleepPoints2 > 8) {
+            $("#halfeyes").css("display", "none");
+            $("#openedeyes").css("display", "block");
             console.log("success!");
             miniGame4_medium();
           }
@@ -233,7 +273,7 @@
                   var sliderValue2 = ui.value;
 
                   if (sliderValue2 = 45) {
-                    setTimeout(endOfLevel2,2000);
+                    setTimeout(endOfLevel2,4000);
                   }
                 }
               });
@@ -244,7 +284,7 @@
           $("#miniGame4_medium").css("display", "none");
           $("#level2End").css("display", "block");
 
-          setTimeout(miniGame1_hard,3000);
+          setTimeout(miniGame1_hard,12000);
         }
 
         function miniGame1_hard() {
@@ -271,7 +311,27 @@
               $( "#thought15" ).dialog();
               }, 13000);
 
-              //setTimeout(miniGame2_medium,17000);
+              setTimeout(miniGame2_hard,17000);
+        }
+
+        function miniGame2_hard() {
+          $("#miniGame2_hard").css("display", "block");
+          setTimeout(miniGame3_hard,15000);
+        }
+
+        function miniGame3_hard() {
+          $("#miniGame2_hard").css("display", "none");
+          $("#miniGame3_hard").css("display", "block");
+          setTimeout(miniGame4_hard,17000);
+        }
+
+        function miniGame4_hard() {
+          $("#miniGame3_hard").css("display", "none");
+          $("#miniGame4_hard").css("display", "block");
+
+          setTimeout(function(){
+            $("#miniGame4_hard").css("display", "none");
+          },12000);
         }
 
 
@@ -288,16 +348,24 @@
 
 <!-- HOME SCREEN -->
 <div id="mainMenu">
-  <h2>my game</h2>
+  <h1>un/heimlich</h1>
+  <p>(use mouse to play)</p>
   <br>
-  <br>
-  <p>blabla rules / ominous quote</p>
-  <br>
+  <p>ɥɔᴉlɯᴉǝɥ/un</p>
   <button onclick="startGame()">Click to Start</button>
 </div>
 
 <!-- LEVEL 1 -->
 <div id="level1">
+  <div id="text1">
+    <br>
+    <br>
+    <br>
+    <p>The bus is here. finally.</p>
+    <br>
+    <p>Time to get on.</p>
+    <p>I need to go home soon, it's getting dark.</p>
+  </div>
 
   <!-- FIRST MINI GAME: WAIT FOR THE BUS! -->
   <div id="miniGame1">
@@ -322,7 +390,7 @@
 
   <!-- SECOND MINI GAME: GET ON BUS - PAY FOR BUS FARE -->
   <div id="miniGame2">
-    <p>pay for your fare!</p>
+    <p id="busrules">pay for your fare!</p>
     <div id="draggable">
       <img id="money" src="assets/images/coin_small.png">
     </div>
@@ -344,6 +412,17 @@
     </div>
   </div>
 
+  <div id="text2">
+    <br>
+    <br>
+    <p>There's just me in the bus. And this other person.</p>
+    <br>
+    <p>Are they staring at me?</p>
+    <br>
+    <br>
+    <br>
+    <p>I can only make out their eyes. Bright red.</p>
+  </div>
   <!-- THIRD MINI GAME: BUS RIDE -->
   <div id="miniGame3">
     <p>don't fall asleep.</p>
@@ -356,6 +435,19 @@
     <img id="closedeyes" src="assets/images/closed.png">
     <img id="halfeyes" src="assets/images/halfopened.png">
     <img id="openedeyes" src="assets/images/opened.png">
+  </div>
+
+  <div id="text3">
+    <br>
+    <p>I wake up.</p>
+    <br>
+    <br>
+    <p>I think my stop is soon.</p>
+    <br>
+    <p>There is no one else in the bus.</p>
+    <br>
+    <br>
+    <p>Looking out the window, I see red lights everywhere.</p>
   </div>
 
   <!-- FOURTH MINI GAME: GET OFF THE BUS -->
@@ -371,7 +463,14 @@
     <br>
     <br>
     <br>
-    <p>"Not that it was beautiful, <br> but that, in the end, <br> there was a certain sense of order there;"</p>
+    <p>There is no one else. I'm at my house now.</p>
+    <br>
+    <br>
+    <p>I turn, and notice the shadow behind me.</p>
+    <br>
+    <br>
+    <br>
+    <p>Two red dots stare back.</p>
   </div>
 </div>
 <!-- END OF LEVEL 1 -->
@@ -397,12 +496,24 @@
 
   <div id="miniGame2_medium">
     <p>pay!^ for your fa&re!</p>
-    <div id="draggable2" class="ui-widget-content">
-      <p>money</p>
+    <div id="draggable2" >
+      <img id="money2" src="assets/images/coin_small.png">
     </div>
 
-    <div id="droppable2" class="ui-widget-header">
-      <p>bus driver</p>
+    <div id="draggable3" >
+      <img id="picture2" src="assets/images/picture.png">
+    </div>
+
+    <div id="draggable4" >
+      <img id="picture3" src="assets/images/picture_small.png">
+    </div>
+
+    <div id="draggable5" >
+      <img id="picture4" src="assets/images/picture_small.png">
+    </div>
+
+    <div id="droppable2">
+      <img id="hand2" src="assets/images/hand.png">
     </div>
   </div>
 
@@ -414,6 +525,11 @@
     <br>
     <br>
     <button id="sleepy2" onclick="addPoints2()">OpenNn Y our  Ey3s</button>
+
+    <img id="closedeyes" src="assets/images/closed.png">
+    <img id="halfeyes" src="assets/images/halfopened.png">
+    <img id="openedeyes" src="assets/images/opened.png">
+
   </div>
 
   <div id="miniGame4_medium">
@@ -427,12 +543,14 @@
     <br>
     <br>
     <br>
-    <p>something worth learning
-<br>in that narrow diary of my mind,
-<br>in the commonplaces of the asylum
-<br>where the cracked mirror
-<br>or my own selfish death
-<br>outstared me . . .</p>
+    <br>
+    <p>The red eyes follow my footsteps.</p>
+    <br>
+    <br>
+    <p>I run faster.</p>
+    <p>The puddles splash underneath me, <br>the stomping on the concrete resonates in my ear drums.</p>
+    <br>
+    <p>I run faster.</p>
   </div>
 
 </div>
@@ -457,16 +575,36 @@
   </div>
 
   <div id="miniGame2_hard">
-    <p>game 2 hard</p>
+    <p>I arrive in front of my house.</p>
+    <br>
+    <br>
+    <p>It's quiet.</p>
+    <p>The walls are covered in roots and vines,</p>
+    <p>The door handle is rusted, and the walls are mushy.</p>
+    <br>
+    <p>The house is falling apart, disappearing in the environment.</p>
   </div>
 
   <div id="miniGame3_hard">
-    <p>game 3 hard</p>
+    <p>I remember the last time I was here,</p>
+    <p>Every day staring at the ruins.</p>
+    <br>
+    <p>I can't remember the last time I walked in.</p>
+    <br>
+    <p>Approaching the cracked windows,</p>
+    <p>I step in front of the glass.</p>
   </div>
 
   <div id="miniGame4_hard">
-    <p>game 4 hard</p>
+    <p>I stare at the reflection.</p>
+    <br>
+    <br>
+    <p>Two red glowing eyes stare back.</p>
+    <br>
+    <p>Climbing through the window,</p>
+    <p>Together, we walk into my home.</p>
   </div>
+
 <div/>
 </div>
 

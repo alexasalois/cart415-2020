@@ -24,8 +24,8 @@ This is the style file for this project.
 #mainMenu {
   position: absolute;
   margin: auto;
-  left: 270px;
-  top: 180px;
+  left: 320px;
+  top: 250px;
   text-align: center;
 }
 
@@ -33,8 +33,6 @@ This is the style file for this project.
   position: relative;
   top: 180px;
   text-align: center;
-  background-image: url("../assets/images/vignette2 bg.png");
-  background-repeat: no-repeat;
 }
 
 #environment1 {
@@ -47,7 +45,7 @@ This is the style file for this project.
 #miniGame1 {
   background-image: url("../assets/images/vignette2 bg.png");
   background-repeat: no-repeat;
-  background-size: auto;
+  z-index: 10000;
 }
 
 #miniGame2 {
@@ -145,4 +143,28 @@ This is the style file for this project.
   position: absolute;
   left: 200px;
   top: 200px;
+}
+
+#closedeyes, #halfeyes, #openedeyes {
+  position: absolute;
+  left: -25px;
+  top: 300px;
+}
+
+#picture2 {
+  position: absolute;
+  top: -350px;
+  left: -300px;
+}
+
+#picture3 {
+  position: absolute;
+  top: -150px;
+  right: -340px;
+}
+
+#picture4 {
+  position: absolute;
+  bottom: 150px;
+  left: 250px;
 }
