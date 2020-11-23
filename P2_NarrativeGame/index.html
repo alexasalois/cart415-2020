@@ -221,18 +221,24 @@
               drop: function( event, ui ) {
               $( this )
               $("#draggable2").css("display","none");
+              $("#draggable4").css("display","none");
+              $("#draggable5").css("display","none");
               setTimeout(miniGame3_medium,3000);
               }
             });
           }
 
         function miniGame3_medium() {
+          $("#text4").css("display", "block");
           $("#miniGame2_medium").css("display", "none");
-          $("#miniGame3_medium").css("display", "block");
-
           $("#halfeyes").css("display", "none");
           $("#openedeyes").css("display", "none");
-          }
+
+          setTimeout(function(){
+            $("#text4").css("display", "none");
+            $("#miniGame3_medium").css("display", "block");
+          },8000);
+        }
 
           var sleepPoints2 = 0;
           function addPoints2() {
@@ -515,6 +521,22 @@
     <div id="droppable2">
       <img id="hand2" src="assets/images/hand.png">
     </div>
+  </div>
+
+  <div id="text4">
+    <br>
+    <br>
+    <br>
+    <p>There are red eyes everywhere.</p>
+    <br>
+    <br>
+    <p>I just see red.</p>
+    <br>
+    <p>My eyelids are heavy,</p>
+    <p>The shadow is sitting accross from me.</p>
+    <br>
+    <br>
+    <p>They mirror my breathing.</p>
   </div>
 
   <div id="miniGame3_medium">

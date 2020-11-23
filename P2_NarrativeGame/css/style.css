@@ -149,6 +149,7 @@ This is the style file for this project.
   position: absolute;
   left: -25px;
   top: 300px;
+  display: none;
 }
 
 #picture2 {
