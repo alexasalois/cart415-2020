@@ -210,6 +210,7 @@
         $("#miniGame1_medium").css("display", "none");
         $("#miniGame3_medium").css("display", "none");
         $("#miniGame4_medium").css("display", "none");
+        $("#text4").css("display", "none");
 
 
           $( "#draggable2" ).draggable();
@@ -223,6 +224,8 @@
               $("#draggable2").css("display","none");
               $("#draggable4").css("display","none");
               $("#draggable5").css("display","none");
+              $("#droppable2").css("display","none");
+              $("#busrules2").css("display","none");
               setTimeout(miniGame3_medium,3000);
               }
             });
@@ -230,12 +233,12 @@
 
         function miniGame3_medium() {
           $("#text4").css("display", "block");
-          $("#miniGame2_medium").css("display", "none");
           $("#halfeyes").css("display", "none");
           $("#openedeyes").css("display", "none");
 
           setTimeout(function(){
             $("#text4").css("display", "none");
+            $("#miniGame2_medium").css("display", "none");
             $("#miniGame3_medium").css("display", "block");
           },8000);
         }
@@ -336,6 +339,7 @@
           $("#miniGame4_hard").css("display", "block");
 
           setTimeout(function(){
+            alert("Finally, you are home. Unless...");
             $("#miniGame4_hard").css("display", "none");
           },12000);
         }
@@ -501,7 +505,7 @@
   </div>
 
   <div id="miniGame2_medium">
-    <p>pay!^ for your fa&re!</p>
+    <p id="busrules2">pay!^ for your fa&re!</p>
     <div id="draggable2" >
       <img id="money2" src="assets/images/coin_small.png">
     </div>
@@ -521,22 +525,22 @@
     <div id="droppable2">
       <img id="hand2" src="assets/images/hand.png">
     </div>
-  </div>
 
-  <div id="text4">
-    <br>
-    <br>
-    <br>
-    <p>There are red eyes everywhere.</p>
-    <br>
-    <br>
-    <p>I just see red.</p>
-    <br>
-    <p>My eyelids are heavy,</p>
-    <p>The shadow is sitting accross from me.</p>
-    <br>
-    <br>
-    <p>They mirror my breathing.</p>
+    <div id="text4">
+      <br>
+      <br>
+      <br>
+      <p>There are red eyes everywhere.</p>
+      <br>
+      <br>
+      <p>I just see red.</p>
+      <br>
+      <p>My eyelids are heavy,</p>
+      <p>The shadow is sitting accross from me.</p>
+      <br>
+      <br>
+      <p>They mirror my breathing.</p>
+    </div>
   </div>
 
   <div id="miniGame3_medium">
@@ -625,6 +629,10 @@
     <br>
     <p>Climbing through the window,</p>
     <p>Together, we walk into my home.</p>
+    <br>
+    <br>
+    <br>
+    <button id="startagain" onclick="startGame()">I don't want to go in.</button>
   </div>
 
 <div/>
